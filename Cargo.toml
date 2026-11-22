@@ -1,0 +1,9 @@
+[package]
+name = "netprobe"
+version = "0.1.0"
+edition = "2021"
+description = "Zero-dependency network and security scanner: ports, SSL certificates, DNS, latency. Pure Rust."
+license = "MIT"
+repository = "https://github.com/vantacorehq/netprobe"
+
+[dependencies]
