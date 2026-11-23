@@ -73,12 +73,6 @@ NETPROBE  example.com
 cargo test
 ```
 
-## Commercial work
-
-Need a full internal scanner with cert expiry alerts, continuous monitoring, or integration into your CI?
-
-Typical engagement: **$700 – $2 000**.
-
 ## License
 
 MIT
