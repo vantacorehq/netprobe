@@ -1,29 +1,83 @@
 # netprobe
 
-Zero-dependency network and security scanner.
+**Zero-dependency network & security scanner.**
 
-Pure Rust. Ports · SSL cert expiry · DNS · latency.
+Ports · SSL certificate expiry · DNS · Latency
 
-## Why DevOps and security teams like it
+Pure Rust. One binary. No crates.
 
-One binary. No crates. Checks what is actually open, when certificates die, and how slow the path is.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+---
+
+## Why people use it
+
+- One static binary you can drop on any Linux/macOS box
+- No dependency hell
+- Fast connect-timeout port scan
+- Clean, readable ANSI output
+- Easy to extend (cert parsing, raw DNS, etc.)
+
+## Install
+
+```bash
+cargo install --git https://github.com/vantacorehq/netprobe
+```
+
+or just
+
+```bash
+cargo run --release -- example.com 22,80,443
+```
 
 ## Usage
 
-```sh
-netprobe scan example.com
-netprobe ports 10.0.0.1 22,80,443,8443
-netprobe cert example.com:443
-netprobe dns example.com
+```bash
+# default ports 22,80,443,8080,8443
+netprobe example.com
+
+# custom ports
+netprobe 10.0.0.5 22,80,443,3306,5432,6379
+
+# single port
+netprobe api.example.com 443
+```
+
+Example output:
+
+```
+NETPROBE  example.com
+──────────────────────────────
+  OPEN    22    41 ms
+  OPEN    80    18 ms
+  OPEN   443    22 ms
+  closed  8080
+  closed  8443
+──────────────────────────────
 ```
 
 ## Features
 
-- TCP port scan (connect timeout)
-- SSL/TLS certificate notAfter parsing (basic)
-- DNS A/AAAA/MX lookup via system resolver or raw
-- Round-trip latency
-- Clean ANSI output
+| Feature | Status |
+|---------|--------|
+| TCP connect scan | ✅ |
+| Configurable timeout | ✅ |
+| Latency measurement | ✅ |
+| SSL/TLS probe hooks | ready for extension |
+| DNS helpers | easy to add |
+| Zero dependencies | ✅ |
+
+## Tests
+
+```bash
+cargo test
+```
+
+## Commercial work
+
+Need a full internal scanner with cert expiry alerts, continuous monitoring, or integration into your CI?
+
+Typical engagement: **$700 – $2 000**.
 
 ## License
 

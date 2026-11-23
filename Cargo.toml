@@ -5,5 +5,7 @@ edition = "2021"
 description = "Zero-dependency network and security scanner: ports, SSL certificates, DNS, latency. Pure Rust."
 license = "MIT"
 repository = "https://github.com/vantacorehq/netprobe"
+keywords = ["network", "scanner", "ports", "security", "cli"]
+categories = ["command-line-utilities", "network-programming"]
 
 [dependencies]
